@@ -1,0 +1,55 @@
+@import '~/src/scss';
+
+:host {
+  .container {
+    .logo-container {
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      label,
+      input {
+        width: 100%;
+      }
+
+      label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid $black;
+
+        svg {
+          width: 30px;
+        }
+
+        input {
+          height: 50px;
+          border: none;
+          font-size: 18px;
+
+          &::placeholder {
+            color: $black;
+            transition: all 0.3s;
+          }
+
+          &:focus {
+            &::placeholder {
+              visibility: hidden;
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .msg-error {
+      margin-top: 24px;
+    }
+  }
+}
