@@ -1,0 +1,11 @@
+@import '~/src/scss';
+
+:host {
+  strong {
+    font-size: 25px;
+    font-weight: 700;
+    color: red;
+    margin-top: 63px;
+    margin-bottom: 84px;
+  }
+}
