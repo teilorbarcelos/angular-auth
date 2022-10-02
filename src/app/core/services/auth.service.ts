@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
+import { JwtHelperService } from '@auth0/angular-jwt'
 import { catchError, map, Observable, throwError } from 'rxjs'
 import { AuthResponseProps, SignProps } from './auth'
 
@@ -29,5 +30,15 @@ export class AuthService {
   public logout() {
     localStorage.removeItem('angular_auth')
     return this.router.navigate([''])
+  }
+
+  public isAuthenticated(): Boolean {
+    const token: string | null = localStorage.getItem('angular_auth')
+
+    if (!token) return false
+
+    const jwtHelper = new JwtHelperService()
+
+    return !jwtHelper.isTokenExpired(token)
   }
 }
